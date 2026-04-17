@@ -41,6 +41,7 @@ public class EmbeddedWorkerConfig extends WorkerConfig {
     protected static Map<String, String> addRequiredWorkerConfig(Map<String, String> props) {
         props.put(WorkerConfig.KEY_CONVERTER_CLASS_CONFIG, JsonConverter.class.getName());
         props.put(WorkerConfig.VALUE_CONVERTER_CLASS_CONFIG, JsonConverter.class.getName());
+        props.put(WorkerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         return props;
     }
 }

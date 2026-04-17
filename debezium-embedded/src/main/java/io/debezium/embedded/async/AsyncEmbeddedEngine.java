@@ -797,7 +797,7 @@ public final class AsyncEmbeddedEngine<R> implements DebeziumEngine<R>, AsyncEng
         final ConfigInfos configInfos = AbstractHerder.generateResult(connectorClassName, Collections.emptyMap(), validatedConnectorConfig.configValues(),
                 connector.config().groups());
         if (configInfos.errorCount() > 0) {
-            final String errors = configInfos.values().stream()
+            final String errors = configInfos.configs().stream()
                     .flatMap(v -> v.configValue().errors().stream())
                     .collect(Collectors.joining(" "));
             throw new DebeziumException("Connector configuration is not valid. " + errors);
