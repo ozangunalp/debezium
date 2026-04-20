@@ -58,6 +58,7 @@ public class JdbcOffsetBackingStoreTest {
                 "ORDER BY record_insert_ts, record_insert_seq");
         props.put(StandaloneConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.json.JsonConverter");
         props.put(StandaloneConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.json.JsonConverter");
+        props.put(WorkerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         config = new StandaloneConfig(props);
         store.configure(config);
         store.start();
